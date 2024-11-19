@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isLoginForm: true,
+  isPasswordVisible: false,
 };
 
 const appSlice = createSlice({
@@ -11,8 +12,12 @@ const appSlice = createSlice({
     setIsLoginForm(state) {
       state.isLoginForm = !state.isLoginForm;
     },
+
+    setPasswordVisible(state) {
+      state.isPasswordVisible = !state.isPasswordVisible;
+    },
   },
 });
 
-export const { setIsLoginForm } = appSlice.actions;
+export const { setIsLoginForm, setPasswordVisible } = appSlice.actions;
 export default appSlice.reducer;
