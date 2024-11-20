@@ -2,23 +2,14 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
-import {
-  firebaseConfig,
-  firebaseConfig,
-  firebaseConfig,
-  firebaseConfig,
-  firebaseConfig,
-  firebaseConfig,
-  firebaseConfig,
-  firebaseConfig,
-} from "../utils/firebaseConfig";
+import { firebaseConfig } from "../utils/firebaseConfig";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+const firebaseConfiguration = {
   apiKey: firebaseConfig.apiKey,
   authDomain: firebaseConfig.authDomain,
   projectId: firebaseConfig.projectId,
@@ -29,7 +20,6 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfiguration);
 const analytics = getAnalytics(app);
-
 export const authProvider = getAuth(app);

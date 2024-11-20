@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setIsLoginForm, setPasswordVisible } from "../store/reducers/appSlice";
 import { useForm } from "react-hook-form";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
+import auth from "../firebase/auth";
 
 const SignInForm = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const SignInForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const isLoginFormHandler = () => {
@@ -21,8 +23,18 @@ const SignInForm = () => {
     dispatch(setPasswordVisible());
   };
 
-  const submitHandler = (data) => {
-    console.log(data);
+  const submitHandler = async (data) => {
+    try {
+      const { email, password } = data;
+      await auth.signIn({ email, password });
+    } catch (error) {
+      console.log("Sign in error: ", error);
+    } finally {
+      reset({
+        email: "",
+        password: "",
+      });
+    }
   };
 
   return (

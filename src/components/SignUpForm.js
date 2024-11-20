@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { setIsLoginForm, setPasswordVisible } from "../store/reducers/appSlice";
 import { useForm } from "react-hook-form";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
+import auth from "../firebase/auth";
+import { authProvider } from "../firebase/firebase";
+import { setUser } from "../store/reducers/authSlice";
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -11,19 +14,48 @@ const SignUpForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
-
-  const isLoginFormHandler = () => {
-    dispatch(setIsLoginForm());
-  };
 
   const passwordVisibleHandler = () => {
     dispatch(setPasswordVisible());
   };
 
-  const submitHandler = (data) => {
-    console.log(data);
+  const isLoginFormHandler = () => {
+    dispatch(setIsLoginForm());
   };
+
+  const submitHandler = async (data) => {
+    try {
+      const { fullname, email, password } = data;
+
+      const user = await auth.signUp({ email, password });
+
+      if (user) {
+        await auth.updateUser({ fullname });
+
+        const { displayName, email, uid, photoURL } = authProvider.currentUser;
+        dispatch(
+          setUser({
+            uid,
+            email,
+            fullname: displayName,
+            profilePicture: photoURL,
+          })
+        );
+      }
+    } catch (error) {
+      console.log("Sign up error: ", error);
+    } finally {
+      reset({
+        fullname: "",
+        email: "",
+        password: "",
+      });
+    }
+  };
+
+  console.log(authProvider.currentUser);
 
   return (
     <div>
