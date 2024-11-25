@@ -12,7 +12,7 @@ const App = () => {
       <Header />
       <main className="main w-full h-[90vh] bg-zinc-900 text-white flex">
         <aside className="sidebar w-[15%] h-full"></aside>
-        <section className="videos-container w-[85%] h-full bg-red-400 overflow-y-auto">
+        <section className="videos w-[85%] h-full overflow-y-auto">
           <Outlet />
         </section>
       </main>
