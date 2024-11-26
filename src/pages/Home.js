@@ -9,7 +9,7 @@ const Home = () => {
   if (!popularMovies) {
     return <h1 className="text-2xl font-bold text-white">Loading....</h1>;
   }
-
+  
   return (
     <>
       <div className="videos-container w-full flex flex-wrap gap-5 overflow-y-auto overflow-x-hidden">

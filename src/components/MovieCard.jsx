@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useFormatViews from "../hooks/useFormatViews";
 import useFormatVideoDuration from "../hooks/useFormatVideoDuration";
+import usefetchChannelDetails from "../hooks/useFetchChannelDetails";
 
 const MovieCard = ({ data }) => {
-  const { channelTitle, thumbnails, title, publishedAt } = data?.snippet;
+  const { channelTitle, thumbnails, title, publishedAt, channelId } =
+    data?.snippet;
 
+  usefetchChannelDetails(channelId);
   const formatedViews = useFormatViews(data?.statistics.viewCount);
   const formatedVideoDuration = useFormatVideoDuration(publishedAt);
 
