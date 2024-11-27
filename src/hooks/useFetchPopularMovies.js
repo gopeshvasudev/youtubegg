@@ -5,7 +5,10 @@ import { useEffect } from "react";
 
 const useFetchPopularMovies = () => {
   const dispatch = useDispatch();
-  const popularMovies = useSelector((store) => store.movies.popularMovies);
+  
+  const popularMovies = useSelector(
+    (store) => store.movies.popularMovies.movies
+  );
 
   const fetchPopularVideos = async () => {
     try {

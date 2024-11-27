@@ -1,19 +1,26 @@
-import React, { useEffect } from "react";
 import useFormatViews from "../hooks/useFormatViews";
 import useFormatVideoDuration from "../hooks/useFormatVideoDuration";
-import usefetchChannelDetails from "../hooks/useFetchChannelDetails";
+import { useSelector } from "react-redux";
 
 const MovieCard = ({ data }) => {
-  const { channelTitle, thumbnails, title, publishedAt, channelId } =
-    data?.snippet;
+  const { channelTitle, thumbnails, title, publishedAt } = data?.snippet;
 
-  usefetchChannelDetails(channelId);
   const formatedViews = useFormatViews(data?.statistics.viewCount);
   const formatedVideoDuration = useFormatVideoDuration(publishedAt);
 
+  const isSidebarVisible = useSelector((store) => store.app.isSidebarVisible);
+
   return (
-    <div className="movie-card flex flex-col gap-3 p-2 w-[365px]">
-      <figure className="thumbnail w-full h-52 rounded-xl overflow-hidden bg-red-200">
+    <div
+      className={`movie-card flex flex-col gap-3 p-2 w-[365px] ${
+        !isSidebarVisible && "w-[410px]"
+      } duration-300`}
+    >
+      <figure
+        className={`thumbnail w-full h-52 rounded-xl overflow-hidden bg-red-200 ${
+          !isSidebarVisible && "h-56"
+        }`}
+      >
         <img
           src={thumbnails.medium.url}
           alt="video name"
@@ -22,13 +29,7 @@ const MovieCard = ({ data }) => {
       </figure>
 
       <div className="video-info flex gap-3">
-        <div>
-          <div className="avatar w-[35px] h-[35px] rounded-full overflow-hidden bg-zinc-700">
-            <img src={""} alt="avatar" className="w-full h-full object-cover" />
-          </div>
-        </div>
-
-        <div>
+        <div className="pl-1">
           <h2 className="text-lg font-semibold leading-[1.2] mb-2">{title}</h2>
 
           <div>

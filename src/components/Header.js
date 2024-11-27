@@ -1,12 +1,23 @@
 import { FiMenu } from "react-icons/fi";
 import { BiSearch } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { toggleSidebarVisible } from "../store/reducers/appSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+
+  const sideBarToggleHandler = () => {
+    dispatch(toggleSidebarVisible());
+  };
+
   return (
     <header className="header w-full bg-zinc-900 text-white">
       <nav className="navbar w-full h-[10vh] flex justify-between items-center px-5">
         <div className="left flex items-center gap-6">
-          <span className="text-2xl cursor-pointer">
+          <span
+            className="text-2xl cursor-pointer"
+            onClick={sideBarToggleHandler}
+          >
             <FiMenu />
           </span>
 

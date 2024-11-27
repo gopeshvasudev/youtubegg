@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  popularMovies: null,
+  popularMovies: {
+    movies: null,
+  },
 };
 
 const moviesSlice = createSlice({
@@ -9,10 +11,11 @@ const moviesSlice = createSlice({
   initialState,
   reducers: {
     addPopularMovies(state, action) {
-      state.popularMovies = action.payload;
+      state.popularMovies.movies = action.payload;
     },
   },
 });
 
 export default moviesSlice.reducer;
-export const { addPopularMovies } = moviesSlice.actions;
+export const { addPopularMovies, setChannelProfilePicture } =
+  moviesSlice.actions;

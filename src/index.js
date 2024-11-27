@@ -9,6 +9,7 @@ import store from "./store/store";
 
 const Home = lazy(() => import("./pages/Home"));
 const Login = lazy(() => import("./pages/Login"));
+const Watch = lazy(() => import("./pages/Watch"));
 
 const router = createBrowserRouter(
   [
@@ -29,6 +30,14 @@ const router = createBrowserRouter(
           element: (
             <Suspense fallback={<h1>Loading....</h1>}>
               <Login />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/watch/:videoId",
+          element: (
+            <Suspense fallback={<h1>Loading....</h1>}>
+              <Watch />
             </Suspense>
           ),
         },
