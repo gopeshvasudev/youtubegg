@@ -21,9 +21,17 @@ const appSlice = createSlice({
     toggleSidebarVisible(state) {
       state.isSidebarVisible = !state.isSidebarVisible;
     },
+
+    collapseSidebar(state) {
+      state.isSidebarVisible = false;
+    },
   },
 });
 
-export const { setIsLoginForm, setPasswordVisible, toggleSidebarVisible } =
-  appSlice.actions;
+export const {
+  setIsLoginForm,
+  setPasswordVisible,
+  toggleSidebarVisible,
+  collapseSidebar,
+} = appSlice.actions;
 export default appSlice.reducer;

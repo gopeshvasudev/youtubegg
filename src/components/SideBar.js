@@ -15,7 +15,7 @@ const SideBar = () => {
         <div className="links-group flex flex-col gap-2">
           <Link
             className={`py-2 pl-3 w-full flex items-center bg-zinc-700 rounded-lg gap-3 font-semibold
-            ${!isSidebarVisible && "justify-center pl-0"}`}
+            ${!isSidebarVisible && "justify-start"}`}
             to={"/"}
           >
             <span className="text-2xl">
