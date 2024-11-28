@@ -1,0 +1,27 @@
+
+------------------------------------------------Youtube Clone-----------------------------------------------------
+
+User Authentication
+    User login and signup functionality using Firebase Authentication.
+
+Real-Time Data
+    Integration with YouTube Data API to fetch real-time video data, including trending videos, channel details, and search results.
+
+Custom Hooks
+    Built custom hooks for fetching and managing API data, enhancing code modularity and reusability.
+
+State Management
+    Implemented Redux Toolkit for efficient global state management.
+
+Infinite Scrolling.
+    Added infinite scrolling for a seamless user experience, allowing users to browse large sets of videos without interruption.
+
+Modern UI with Tailwind CSS
+    Fully responsive and visually appealing design using Tailwind CSS. Optimized for both desktop and mobile devices.
+
+Tech Stack
+    Frontend: React, Redux Toolkit, Tailwind CSS
+    Backend: Firebase (Authentication) 
+    APIs: YouTube Data API v3
+    Development Tools: Postman (for API testing), Jest (for Testing)
+    Deployment: Vercel

@@ -5,7 +5,11 @@ const Watch = () => {
 
   return (
     <>
-      <h1>{videoId}</h1>
+      <div className="w-full flex">
+        <section className="watch-video-container w-[75%]">
+          <div className="w-full"></div>
+        </section>
+      </div>
     </>
   );
 };
