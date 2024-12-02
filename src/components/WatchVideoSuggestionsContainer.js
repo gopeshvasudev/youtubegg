@@ -9,7 +9,7 @@ const WatchVideoSuggestionsContainer = () => {
   );
 
   return (
-    <section className="video-suggestion-container w-[35%] flex flex-col gap-3">
+    <section className="video-suggestion-container w-full lg:w-[35%] flex flex-col gap-3">
       {popularMovies?.map((movie) => (
         <Link key={movie.id} to={`/watch/${movie.id}`}>
           <SuggestionVideoCard data={movie} />

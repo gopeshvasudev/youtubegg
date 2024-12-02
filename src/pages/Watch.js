@@ -15,7 +15,7 @@ const Watch = () => {
 
   return (
     <>
-      <div className="w-full flex flex-col lg:flex-row gap-10 p-2 pr-16">
+      <div className="w-full flex flex-col lg:flex-row gap-10 p-2 lg:pr-5 xl:pr-16">
         <WatchVideoContainer videoId={videoId} />
 
         <WatchVideoSuggestionsContainer />

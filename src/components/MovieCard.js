@@ -12,7 +12,7 @@ const MovieCard = ({ data }) => {
 
   return (
     <div
-      className={`movie-card flex flex-col gap-3 p-2 w-[365px] duration-300 hover:scale-105 ${
+      className={`movie-card flex flex-col gap-3 p-2 w-[365px] duration-300 hover:scale-95 ${
         !isSidebarVisible && "w-[410px]"
       }`}
     >

@@ -9,13 +9,19 @@ const SuggestionVideoCard = ({ data }) => {
   const formatedVideoDuration = useFormatVideoDuration(publishedAt);
 
   return (
-    <div className="w-full rounded-lg flex gap-5">
-      <div className="thumbnail w-[40%] h-24 rounded-lg overflow-hidden bg-zinc-700">
-        <img src={thumbnails.medium.url} alt={title} />
+    <div className="w-full rounded-lg flex flex-col sm:flex-row gap-5">
+      <div className="thumbnail w-full sm:w-[40%] lg:w-[50%] h-56 sm:h-28 md:h-36 lg:h-24 rounded-lg overflow-hidden bg-zinc-700">
+        <img
+          src={thumbnails.medium.url}
+          alt={title}
+          className="w-full h-full object-cover"
+        />
       </div>
 
-      <div className="w-[60%]">
-        <h2 className="text-base font-semibold line-clamp-2 leading-[1.2] mb-2">{title}</h2>
+      <div className="w-full md:w-[60%]">
+        <h2 className="text-base font-semibold line-clamp-2 leading-[1.2] mb-2">
+          {title}
+        </h2>
 
         <div>
           <h3 className="text-base font-medium text-zinc-300">

@@ -11,7 +11,7 @@ const App = () => {
   ) : (
     <>
       <Header />
-      <main className="main w-full h-[90vh] bg-zinc-900 text-white flex">
+      <main className="main w-full h-[88vh] bg-zinc-900 text-white flex">
         <SideBar />
         <section className="videos w-[100%] h-full overflow-y-auto">
           <Outlet />
